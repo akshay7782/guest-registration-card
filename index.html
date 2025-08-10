@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Guest Registration Card — NEW BUS STAND, BALIJORI, JHARSUGUDA</title>
+
+<!-- Poppins font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Cropper.js CSS -->
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet"/>
+
+<!-- Styles (mobile-first, premium look) -->
+<style>
+  :root{
+    --primary:#A07638; /* Gold-Brown */
+    --secondary:#1a1a1a;
+    --bg:#f7f8fc;
+    --muted:#6b6b6b;
+    --radius:12px;
+    --card-shadow: 0 6px 20px rgba(10,10,10,0.06);
+  }
+  html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--secondary);}
+  .container{max-width:1100px;margin:18px auto;padding:18px;}
+  header.card{
+    background:white;border-radius:16px;padding:16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-shadow:var(--card-shadow);
+  }
+  .logo {
+    width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#c69a6f);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:22px;
+    flex:0 0 72px;
+  }
+  header .title{font-weight:700;font-size:14px}
+  header .subtitle{font-weight:500;color:var(--muted);font-size:12px;margin-top:4px}
+  .topbar{
+    background:white;padding:12px;border-radius:12px;margin-bottom:12px;display:flex;gap:12px;align-items:center;box-shadow:var(--card-shadow);
+    flex-wrap:wrap;
+  }
+  .topbar .item{display:flex;flex-direction:column;}
+  label{font-weight:600;font-size:12px;color:var(--secondary);margin-bottom:6px;}
+  input[type=text],input[type=number],input[type=date],input[type=time],textarea,select,input[type=datetime-local]{
+    border:1px solid #e6e6e9;padding:10px;border-radius:8px;background:#fff;font-size:14px;
+  }
+  .row{display:flex;gap:12px;align-items:center;}
+  .columns{display:grid;grid-template-columns:1fr;gap:12px;}
+  /* desktop two-column */
+  @media(min-width:880px){
+    .columns{grid-template-columns:1fr 1fr;}
+  }
+  .card {
+    background:white;border-radius:12px;padding:14px;box-shadow:var(--card-shadow);
+  }
+  .field{margin-bottom:10px;}
+  .label-muted{font-size:12px;color:var(--muted);margin-bottom:6px;}
+  .input-disabled{background:#f1f3f6;color:#333;border:1px solid #e9ecef;}
+  .small{font-size:13px;}
+  .flex-between{display:flex;justify-content:space-between;align-items:center;}
+  .btn {background:var(--primary);color:white;padding:10px 14px;border:none;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 6px 14px rgba(160,118,56,0.18);}
+  .btn.secondary{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+  .muted{color:var(--muted);font-size:13px}
+  .images-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .imgbox{border:1px dashed #e2e2e2;padding:10px;border-radius:10px;display:flex;flex-direction:column;gap:8px;align-items:center;min-height:120px;justify-content:center}
+  .imgbox img{max-width:100%;max-height:120px;border-radius:6px;object-fit:cover}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .footer-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-top:10px}
+  .error{color:#b00020;font-size:13px;margin-top:6px}
+  /* PDF preview hidden area */
+  #pdf-card{display:none;}
+  /* modal */
+  .modal-back{position:fixed;inset:0;background:rgba(10,10,10,0.45);display:flex;align-items:center;justify-content:center;z-index:9999;}
+  .modal{background:#fff;padding:12px;border-radius:12px;max-width:98%;width:880px;max-height:90vh;overflow:auto;}
+  .crop-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+  .small-muted{font-size:12px;color:var(--muted)}
+  .top-right-meta{display:flex;gap:8px;align-items:center}
+  /* input visual */
+  input[type=file]{display:none}
+  .file-label{background:#f4f6f9;padding:8px 10px;border-radius:8px;border:1px solid #e9eef6;cursor:pointer;font-size:13px}
+  /* nice headings */
+  h3{margin:0 0 8px 0;font-size:15px}
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="card">
+    <div class="logo" aria-hidden="true">NBS</div>
+    <div style="flex:1">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div class="title">NEW BUS STAND, BALIJORI, JHARSUGUDA</div>
+          <div class="subtitle">(Operating ACU Private Limited)</div>
+        </div>
+        <div class="top-right-meta">
+          <div class="muted small">Guest Registration Card</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Top Information Bar -->
+  <div class="topbar">
+    <div class="item" style="min-width:90px">
+      <label>Sl No.</label>
+      <input id="slno" type="text" placeholder="Auto / Manual">
+    </div>
+
+    <div class="item" style="min-width:150px">
+      <label>Language</label>
+      <select id="langSelect" title="Translation target">
+        <option value="hi">Hindi</option>
+        <option value="or">Odia</option>
+      </select>
+    </div>
+
+    <div class="item" style="min-width:160px;margin-left:auto">
+      <label>Date</label>
+      <input id="regDate" type="date">
+    </div>
+  </div>
+
+  <!-- main columns -->
+  <div class="card">
+    <div style="display:flex;gap:10px;flex-direction:column;">
+      <div class="columns">
+
+        <!-- LEFT COLUMN — Data entry (English) -->
+        <div>
+          <h3>Data Entry — English</h3>
+
+          <div class="field">
+            <label>Guest Name *</label>
+            <input id="guestName" type="text" placeholder="Enter guest full name" />
+            <div class="small-muted">Auto uppercase</div>
+          </div>
+
+          <div class="field">
+            <label>Aadhaar No. *</label>
+            <input id="aadhaar" type="text" inputmode="numeric" placeholder="12 digits" maxlength="12"/>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="field">
+              <label>Village *</label>
+              <input id="village" type="text" />
+            </div>
+            <div class="field">
+              <label>Post Office *</label>
+              <input id="post" type="text"/>
+            </div>
+            <div class="field">
+              <label>Police Station *</label>
+              <input id="ps" type="text"/>
+            </div>
+            <div class="field">
+              <label>District *</label>
+              <input id="district" type="text"/>
+            </div>
+            <div class="field">
+              <label>Pin Code *</label>
+              <input id="pincode" type="text" inputmode="numeric" maxlength="6"/>
+            </div>
+            <div class="field">
+              <label>State *</label>
+              <input id="state" type="text"/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Tele No. *</label>
+            <input id="phone" type="text" inputmode="numeric" maxlength="10" placeholder="10 digits" />
+          </div>
+
+          <div class="field">
+            <label>Nationality</label>
+            <input id="nationality" type="text" value="INDIAN"/>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="field">
+              <label>Date of Birth</label>
+              <input id="dob" type="date"/>
+            </div>
+            <div class="field">
+              <label>Age</label>
+              <input id="age" type="text" readonly/>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px">
+            <div class="field" style="flex:1">
+              <label>Nos of Pax — Adult</label>
+              <input id="adult" type="number" min="0" value="1"/>
+            </div>
+            <div class="field" style="flex:1">
+              <label>Nos of Pax — Child</label>
+              <input id="child" type="number" min="0" value="0"/>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="field">
+              <label>Date of Arrival</label>
+              <input id="arrival" type="datetime-local"/>
+            </div>
+            <div class="field">
+              <label>Expected Date of Departure</label>
+              <input id="departure" type="datetime-local"/>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Arrived From</label>
+            <input id="arrivedFrom" type="text" />
+          </div>
+
+          <div class="field">
+            <label>Proceeding To</label>
+            <input id="proceedTo" type="text" />
+          </div>
+
+          <div class="field">
+            <label>Purpose of Visit *</label>
+            <input id="purpose" type="text" />
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN — Live Translation (display only) -->
+        <div>
+          <h3>Translated — Display Only</h3>
+
+          <div class="field">
+            <label>Guest Name</label>
+            <input id="t_guestName" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div class="field">
+            <label>Aadhaar No.</label>
+            <input id="t_aadhaar" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="field">
+              <label>Village</label>
+              <input id="t_village" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field">
+              <label>Post Office</label>
+              <input id="t_post" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field">
+              <label>Police Station</label>
+              <input id="t_ps" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field">
+              <label>District</label>
+              <input id="t_district" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field">
+              <label>Pin Code</label>
+              <input id="t_pincode" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field">
+              <label>State</label>
+              <input id="t_state" type="text" class="input-disabled" disabled />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Tele No.</label>
+            <input id="t_phone" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div class="field">
+            <label>Nationality</label>
+            <input id="t_nationality" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="field">
+              <label>Date of Birth</label>
+              <input id="t_dob" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field">
+              <label>Age</label>
+              <input id="t_age" type="text" class="input-disabled" disabled />
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px">
+            <div class="field" style="flex:1">
+              <label>Adult</label>
+              <input id="t_adult" type="text" class="input-disabled" disabled />
+            </div>
+            <div class="field" style="flex:1">
+              <label>Child</label>
+              <input id="t_child" type="text" class="input-disabled" disabled />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Arrival</label>
+            <input id="t_arrival" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div class="field">
+            <label>Departure</label>
+            <input id="t_departure" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div class="field">
+            <label>Arrived From</label>
+            <input id="t_arrivedFrom" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div class="field">
+            <label>Proceeding To</label>
+            <input id="t_proceedTo" type="text" class="input-disabled" disabled />
+          </div>
+
+          <div class="field">
+            <label>Purpose of Visit</label>
+            <input id="t_purpose" type="text" class="input-disabled" disabled />
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Booking, Payment & Documents -->
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr;gap:12px;">
+        <div class="card">
+          <h3>Booking & Payment</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+            <div class="field">
+              <label>Bed / Room / Locker No.</label>
+              <input id="roomNo" type="text"/>
+            </div>
+            <div class="field">
+              <label>Rate (₹)</label>
+              <input id="rate" type="number" min="0"/>
+            </div>
+            <div class="field">
+              <label>Mode of Payment</label>
+              <div style="display:flex;gap:10px;align-items:center">
+                <label><input name="pay" type="radio" value="Cash" checked> Cash</label>
+                <label><input name="pay" type="radio" value="Card"> Credit Card</label>
+                <label><input name="pay" type="radio" value="Online"> Online Payment</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Document Upload & Processing</h3>
+          <div class="images-grid">
+            <div class="imgbox" id="photoBox">
+              <div class="small-muted">Guest Photograph</div>
+              <img id="photoPreview" alt="photo preview" src="" style="display:none"/>
+              <label class="file-label" for="photoFile" title="Choose photo">Choose</label>
+              <input id="photoFile" type="file" accept="image/*">
+              <div class="actions">
+                <button class="btn secondary" id="photoCropBtn" type="button">Crop</button>
+                <button class="btn" id="photoProcessBtn" type="button">Process</button>
+              </div>
+              <div class="small-muted">Passport-like (processed to blue background)</div>
+            </div>
+
+            <div class="imgbox" id="signBox">
+              <div class="small-muted">Signature</div>
+              <img id="signPreview" alt="signature preview" src="" style="display:none"/>
+              <label class="file-label" for="signFile" title="Choose signature">Choose</label>
+              <input id="signFile" type="file" accept="image/*">
+              <div class="actions">
+                <button class="btn secondary" id="signCropBtn" type="button">Crop</button>
+                <button class="btn" id="signProcessBtn" type="button">Process</button>
+              </div>
+              <div class="small-muted">Background removed on process</div>
+            </div>
+
+            <div class="imgbox" id="aadFrontBox">
+              <div class="small-muted">Aadhaar Front</div>
+              <img id="aadFrontPreview" alt="aadhaar front" src="" style="display:none"/>
+              <label class="file-label" for="aadFrontFile" title="Choose aadhaar front">Choose</label>
+              <input id="aadFrontFile" type="file" accept="image/*">
+              <div class="actions">
+                <button class="btn secondary" id="aadFrontCropBtn" type="button">Crop</button>
+              </div>
+              <div class="small-muted">Auto adjust on upload</div>
+            </div>
+
+            <div class="imgbox" id="aadBackBox">
+              <div class="small-muted">Aadhaar Back</div>
+              <img id="aadBackPreview" alt="aadhaar back" src="" style="display:none"/>
+              <label class="file-label" for="aadBackFile" title="Choose aadhaar back">Choose</label>
+              <input id="aadBackFile" type="file" accept="image/*">
+              <div class="actions">
+                <button class="btn secondary" id="aadBackCropBtn" type="button">Crop</button>
+              </div>
+              <div class="small-muted">Auto adjust on upload</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="flex-between">
+            <div>
+              <div class="muted">Saved locally — changes are persisted to this device</div>
+            </div>
+            <div class="footer-actions">
+              <button class="btn secondary" id="previewPdf">Preview PDF</button>
+              <button class="btn secondary" id="sharePdf">Share</button>
+              <button class="btn" id="saveDownloadPrint">Save, Download PDF &amp; Print</button>
+            </div>
+          </div>
+
+          <div id="formError" class="error" style="display:none"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Cropper Modal -->
+<div id="modal" style="display:none" aria-hidden="true">
+  <div class="modal-back" id="modalBack">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Image Cropper">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><strong>Crop & Rotate</strong><div class="small-muted">Adjust image then click Process / Apply</div></div>
+        <div><button class="btn secondary" id="closeModal">Close</button></div>
+      </div>
+      <div style="margin-top:10px">
+        <div style="max-height:60vh;overflow:auto"><img id="modalImage" src="" alt="To crop" style="max-width:100%" /></div>
+        <div class="crop-actions">
+          <button class="btn secondary" id="rotateLeft">Rotate -90°</button>
+          <button class="btn secondary" id="rotateRight">Rotate +90°</button>
+          <button class="btn" id="applyCrop">Apply Crop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden area for PDF generation copy -->
+<div id="pdf-card">
+  <div id="pdf-content" style="width:210mm;padding:16mm;background:white;box-sizing:border-box;font-family:Poppins, sans-serif;">
+    <!-- We'll fill this dynamically when generating PDF -->
+  </div>
+</div>
+
+<!-- JS Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+/*************************************************************************
+  Single-file Guest Registration Card
+  - Implements live translation via provided Google Apps Script endpoint.
+  - Implements image crop & processing via Cropper.js and Cloudinary unsigned upload.
+  - Generates A4 PDF via html2canvas + jsPDF, saves to localStorage, supports Web Share API.
+**************************************************************************/
+
+// ----------------------------- Config -----------------------------------
+const TRANSLATE_API = 'https://script.google.com/macros/s/AKfycbx9PbEUAYErM1tcqFIGW0Z320e8TnWwIieymdk8MXhhXfn1JbJnH0zWXqGhIQLDRWCLhg/exec';
+const CLOUD_NAME = 'ddkioxnfr';
+const UPLOAD_PRESET = 'Book_My_Room_preset';
+
+// localStorage key
+const STORAGE_KEY = 'guest_reg_card_data_v1';
+
+// Debounce helper
+function debounce(fn, wait){let t;return (...args)=>{clearTimeout(t);t=setTimeout(()=>fn(...args),wait);}}
+
+// ------------------------- DOM references -------------------------------
+const inputs = {
+  guestName: document.getElementById('guestName'),
+  aadhaar: document.getElementById('aadhaar'),
+  village: document.getElementById('village'),
+  post: document.getElementById('post'),
+  ps: document.getElementById('ps'),
+  district: document.getElementById('district'),
+  pincode: document.getElementById('pincode'),
+  state: document.getElementById('state'),
+  phone: document.getElementById('phone'),
+  nationality: document.getElementById('nationality'),
+  dob: document.getElementById('dob'),
+  age: document.getElementById('age'),
+  adult: document.getElementById('adult'),
+  child: document.getElementById('child'),
+  arrival: document.getElementById('arrival'),
+  departure: document.getElementById('departure'),
+  arrivedFrom: document.getElementById('arrivedFrom'),
+  proceedTo: document.getElementById('proceedTo'),
+  purpose: document.getElementById('purpose'),
+  slno: document.getElementById('slno'),
+  langSelect: document.getElementById('langSelect'),
+  regDate: document.getElementById('regDate'),
+  roomNo: document.getElementById('roomNo'),
+  rate: document.getElementById('rate')
+};
+
+// translated targets
+const t = {
+  guestName: document.getElementById('t_guestName'),
+  aadhaar: document.getElementById('t_aadhaar'),
+  village: document.getElementById('t_village'),
+  post: document.getElementById('t_post'),
+  ps: document.getElementById('t_ps'),
+  district: document.getElementById('t_district'),
+  pincode: document.getElementById('t_pincode'),
+  state: document.getElementById('t_state'),
+  phone: document.getElementById('t_phone'),
+  nationality: document.getElementById('t_nationality'),
+  dob: document.getElementById('t_dob'),
+  age: document.getElementById('t_age'),
+  adult: document.getElementById('t_adult'),
+  child: document.getElementById('t_child'),
+  arrival: document.getElementById('t_arrival'),
+  departure: document.getElementById('t_departure'),
+  arrivedFrom: document.getElementById('t_arrivedFrom'),
+  proceedTo: document.getElementById('t_proceedTo'),
+  purpose: document.getElementById('t_purpose')
+};
+
+const formError = document.getElementById('formError');
+const previewBtn = document.getElementById('previewPdf');
+const shareBtn = document.getElementById('sharePdf');
+const saveBtn = document.getElementById('saveDownloadPrint');
+
+// image elements
+const photoFile = document.getElementById('photoFile'), photoPreview = document.getElementById('photoPreview');
+const signFile = document.getElementById('signFile'), signPreview = document.getElementById('signPreview');
+const aadFrontFile = document.getElementById('aadFrontFile'), aadFrontPreview = document.getElementById('aadFrontPreview');
+const aadBackFile = document.getElementById('aadBackFile'), aadBackPreview = document.getElementById('aadBackPreview');
+
+const photoCropBtn = document.getElementById('photoCropBtn'), photoProcessBtn = document.getElementById('photoProcessBtn');
+const signCropBtn = document.getElementById('signCropBtn'), signProcessBtn = document.getElementById('signProcessBtn');
+const aadFrontCropBtn = document.getElementById('aadFrontCropBtn'), aadBackCropBtn = document.getElementById('aadBackCropBtn');
+
+const modal = document.getElementById('modal'), modalBack = document.getElementById('modalBack'), modalImage = document.getElementById('modalImage');
+const closeModalBtn = document.getElementById('closeModal'), rotateLeft = document.getElementById('rotateLeft'), rotateRight = document.getElementById('rotateRight'), applyCrop = document.getElementById('applyCrop');
+
+let cropper = null;
+let cropTarget = null; // which field is being cropped: 'photo','sign','aadFront','aadBack'
+let currentFileBlob = null;
+
+// store processed image URLs (Cloudinary) or base64 if not uploaded
+let images = {
+  photo: null,
+  sign: null,
+  aadFront: null,
+  aadBack: null
+};
+
+// -------------------------- Utilities ----------------------------------
+function setUppercase(el){
+  if(!el) return;
+  el.addEventListener('input', ()=> {
+    const pos = el.selectionStart;
+    el.value = el.value.toUpperCase();
+    try{el.setSelectionRange(pos,pos);}catch(e){}
+  });
+}
+
+// restrict numeric input
+function restrictNumeric(el, maxLen){
+  el.addEventListener('input', ()=> {
+    el.value = el.value.replace(/\D/g,'').slice(0, maxLen || 999);
+  });
+}
+
+// helper to format date/time nicely for translation display
+function formatDateTimeLocal(val){
+  if(!val) return '';
+  try{
+    const d = new Date(val);
+    if(isNaN(d)) return val;
+    return d.toLocaleString();
+  }catch(e){
+    return val;
+  }
+}
+
+// ---------------------- Initialize inputs behaviors --------------------
+setUppercase(inputs.guestName);
+setUppercase(inputs.village);
+setUppercase(inputs.post);
+setUppercase(inputs.ps);
+setUppercase(inputs.district);
+setUppercase(inputs.state);
+setUppercase(inputs.arrivedFrom);
+setUppercase(inputs.proceedTo);
+setUppercase(inputs.purpose);
+setUppercase(inputs.nationality);
+
+restrictNumeric(inputs.aadhaar,12);
+restrictNumeric(inputs.pincode,6);
+restrictNumeric(inputs.phone,10);
+
+// default date to today
+(function initDates(){
+  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('regDate').value = today;
+})();
+
+// calculate age from DOB
+inputs.dob.addEventListener('change', ()=>{
+  const val = inputs.dob.value;
+  if(!val){inputs.age.value=''; t.age.value=''; return;}
+  const birth = new Date(val);
+  const diff = Date.now() - birth.getTime();
+  const ageDt = new Date(diff);
+  const age = Math.abs(ageDt.getUTCFullYear() - 1970);
+  inputs.age.value = age;
+  t.age.value = age;
+  // send date to translated field as readable
+  t.dob.value = formatDateTimeLocal(val);
+  // persist
+  saveToLocal();
+});
+
+// arrival / departure display to translated side
+inputs.arrival.addEventListener('change', ()=>{ t.arrival.value = formatDateTimeLocal(inputs.arrival.value); saveToLocal(); });
+inputs.departure.addEventListener('change', ()=>{ t.departure.value = formatDateTimeLocal(inputs.departure.value); saveToLocal(); });
+
+// mirror numeric/adult child
+inputs.adult.addEventListener('input', ()=>{ t.adult.value = inputs.adult.value; saveToLocal(); });
+inputs.child.addEventListener('input', ()=>{ t.child.value = inputs.child.value; saveToLocal(); });
+
+// simple two-way on numbers etc to translation display
+['aadhaar','pincode','phone','nationality','arrival','departure'].forEach(id=>{
+  const el = inputs[id];
+  if(!el) return;
+  el.addEventListener('input', ()=>{ const ti = t[id] || null; if(ti) ti.value = el.value; saveToLocal();});
+});
+
+// track many fields for local save & translation
+const translatableFields = [
+  'guestName','village','post','ps','district','state','arrivedFrom','proceedTo','purpose'
+];
+
+// debounced translator
+const debouncedTranslate = debounce((text, targetLang, outEl) => {
+  if(!text) { outEl.value = ''; return; }
+  translateText(text, targetLang).then(res => {
+    if(res && res.length) outEl.value = res;
+  }).catch(err=>{
+    console.warn('Translate error',err);
+  });
+}, 650);
+
+// hook up translation for each field
+translatableFields.forEach(k=>{
+  const el = inputs[k];
+  const out = t[k];
+  if(!el || !out) return;
+  el.addEventListener('input', ()=> {
+    const text = el.value;
+    const lang = document.getElementById('langSelect').value || 'hi';
+    debouncedTranslate(text, lang, out);
+    // also uppercase immediate (already handled), and save
+    saveToLocal();
+  });
+});
+
+// If language selection changes, retranslate all (existing)
+document.getElementById('langSelect').addEventListener('change', ()=>{
+  translatableFields.forEach(k=>{
+    const val = inputs[k].value;
+    const out = t[k];
+    if(val && out) debouncedTranslate(val, document.getElementById('langSelect').value, out);
+  });
+});
+
+// other mirrored fields for translation (readonly ones)
+inputs.phone.addEventListener('input', ()=> { t.phone.value = inputs.phone.value; saveToLocal(); });
+inputs.nationality.addEventListener('input', ()=> { t.nationality.value = inputs.nationality.value; saveToLocal(); });
+
+// save on many inputs
+Object.values(inputs).forEach(el=>{
+  el && el.addEventListener && el.addEventListener('input', saveToLocal);
+});
+
+// --------------------- Translation API call -----------------------------
+/**
+ * translateText(text, targetLang) => Promise<string>
+ * Uses the provided Google Apps Script web app (simple wrapper expected).
+ * Expected API: GET ?q=...&target=hi  -> returns JSON string or object containing translated text.
+ */
+async function translateText(q, target='hi'){
+  try{
+    const url = TRANSLATE_API + '?q=' + encodeURIComponent(q) + '&target=' + encodeURIComponent(target);
+    const res = await fetch(url);
+    if(!res.ok) throw new Error('Translation API failed: ' + res.status);
+    const data = await res.json();
+    // The Apps Script may return {translatedText: "..."} or a string
+    if(typeof data === 'string') return data;
+    if(data.translatedText) return data.translatedText;
+    // otherwise try generic first item
+    if(Array.isArray(data) && data.length) return data[0];
+    return JSON.stringify(data);
+  }catch(err){
+    console.error('translateText err',err);
+    return '';
+  }
+}
+
+// ---------------------- Image upload & crop -----------------------------
+function setupFileInput(fileInput, previewImgEl, cropBtn){
+  fileInput.addEventListener('change', (e)=>{
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    const url = URL.createObjectURL(f);
+    previewImgEl.src = url;
+    previewImgEl.style.display = 'block';
+    // enable crop button
+    if(cropBtn) cropBtn.disabled = false;
+    // store blob for cropping
+    currentFileBlob = f;
+  });
+}
+
+// configure inputs
+setupFileInput(photoFile, photoPreview, photoCropBtn);
+setupFileInput(signFile, signPreview, signCropBtn);
+setupFileInput(aadFrontFile, aadFrontPreview, aadFrontCropBtn);
+setupFileInput(aadBackFile, aadBackPreview, aadBackCropBtn);
+
+// open modal and init cropper
+function openCropperFor(target){
+  cropTarget = target;
+  let src;
+  if(target === 'photo') src = photoPreview.src;
+  else if(target === 'sign') src = signPreview.src;
+  else if(target === 'aadFront') src = aadFrontPreview.src;
+  else if(target === 'aadBack') src = aadBackPreview.src;
+  else return;
+  if(!src) { alert('Please choose a file first.'); return; }
+  modal.style.display = 'block';
+  modal.setAttribute('aria-hidden','false');
+  modalImage.src = src;
+  setTimeout(()=> {
+    if(cropper) cropper.destroy();
+    cropper = new Cropper(modalImage, {
+      viewMode: 1,
+      autoCropArea: 0.9,
+      responsive: true,
+      background: false,
+      movable: true,
+      rotatable: true,
+      scalable: true
+    });
+  }, 200);
+}
+
+// apply crop
+applyCrop.addEventListener('click', async ()=>{
+  if(!cropper) return;
+  try{
+    const canvas = cropper.getCroppedCanvas({ maxWidth:1200, maxHeight:1600, imageSmoothingQuality:'high' });
+    const dataUrl = canvas.toDataURL('image/jpeg',0.92);
+    // set preview and close modal
+    if(cropTarget === 'photo'){ photoPreview.src = dataUrl; images.photo = dataUrl; }
+    else if(cropTarget === 'sign'){ signPreview.src = dataUrl; images.sign = dataUrl; }
+    else if(cropTarget === 'aadFront'){ aadFrontPreview.src = dataUrl; images.aadFront = dataUrl; }
+    else if(cropTarget === 'aadBack'){ aadBackPreview.src = dataUrl; images.aadBack = dataUrl; }
+    // destroy cropper & close
+    cropper.destroy();
+    cropper = null;
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+    saveToLocal();
+  }catch(err){
+    console.error(err);
+    alert('Crop failed: ' + err.message);
+  }
+});
+
+// rotate
+rotateLeft.addEventListener('click', ()=>{ if(cropper) cropper.rotate(-90); });
+rotateRight.addEventListener('click', ()=>{ if(cropper) cropper.rotate(90); });
+
+// close
+closeModalBtn.addEventListener('click', ()=>{ if(cropper){cropper.destroy();cropper=null;} modal.style.display='none'; modal.setAttribute('aria-hidden','true'); });
+
+// crop buttons
+photoCropBtn.addEventListener('click', ()=> openCropperFor('photo'));
+signCropBtn.addEventListener('click', ()=> openCropperFor('sign'));
+aadFrontCropBtn.addEventListener('click', ()=> openCropperFor('aadFront'));
+aadBackCropBtn.addEventListener('click', ()=> openCropperFor('aadBack'));
+
+// Process buttons call Cloudinary transformations
+async function uploadToCloudinary(dataUrl, publicIdPrefix='guest') {
+  try {
+    // convert dataURL to blob
+    const res = await fetch(dataUrl);
+    const blob = await res.blob();
+    const form = new FormData();
+    form.append('file', blob);
+    form.append('upload_preset', UPLOAD_PRESET);
+    // recommended to set folder or public_id if needed
+    form.append('folder', 'guest_reg_cards');
+    // generate a random public id to reference transformations later
+    form.append('public_id', publicIdPrefix + '_' + Date.now());
+    const url = 'https://api.cloudinary.com/v1_1/' + CLOUD_NAME + '/image/upload';
+    const r = await fetch(url, { method:'POST', body: form});
+    if(!r.ok) throw new Error('Cloudinary upload failed ' + r.status);
+    const json = await r.json();
+    return json; // contains secure_url, public_id, etc.
+  } catch (err){
+    console.error('uploadToCloudinary',err);
+    throw err;
+  }
+}
+
+// build transformed Cloudinary url by inserting transformation segment
+function buildCloudinaryUrl(public_id, transformation){
+  // ensure no extension in public_id (Cloudinary returns it with extension sometimes)
+  // public_id like 'guest_reg_cards/guest_...'
+  const enc = encodeURIComponent(public_id + '.jpg');
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${transformation}/${enc}`;
+}
+
+// Photo process: make passport-size (e.g., 413x531) with blue background
+photoProcessBtn.addEventListener('click', async ()=>{
+  try{
+    if(!images.photo){ alert('Please choose & crop a photograph first.'); return; }
+    photoProcessBtn.disabled = true; photoProcessBtn.textContent = 'Processing...';
+    const uploaded = await uploadToCloudinary(images.photo,'photo');
+    // create transformation: resize and background to blue, center crop
+    // Using Cloudinary transformation: c_fill,w_413,h_531,b_rgb:0e64ff
+    // We reference public_id returned
+    const trans = 'c_fill,w_413,h_531,b_rgb:0e64ff';
+    const url = buildCloudinaryUrl(uploaded.public_id, trans);
+    images.photo = url; // replace local with cloud URL
+    photoPreview.src = url;
+    saveToLocal();
+    alert('Photo processed and uploaded.');
+  }catch(e){
+    alert('Photo processing failed. See console for details.');
+  }finally{
+    photoProcessBtn.disabled = false; photoProcessBtn.textContent = 'Process';
+  }
+});
+
+// Signature process: attempt background removal (Cloudinary 'e_bgremoval' or 'e_background_removal')
+signProcessBtn.addEventListener('click', async ()=>{
+  try{
+    if(!images.sign){ alert('Please choose & crop a signature first.'); return; }
+    signProcessBtn.disabled = true; signProcessBtn.textContent = 'Processing...';
+    const uploaded = await uploadToCloudinary(images.sign,'sign');
+    // attempt background removal via eager transformation or effect 'background_removal'
+    // transformation: e_background_removal (may require advanced features)
+    const trans = 'e_background_removal,fl_png'; // produce png with transparency
+    const url = buildCloudinaryUrl(uploaded.public_id, trans);
+    images.sign = url;
+    signPreview.src = url;
+    saveToLocal();
+    alert('Signature processed and uploaded.');
+  }catch(e){
+    alert('Signature processing failed — uploaded original instead.');
+    console.warn(e);
+  }finally{
+    signProcessBtn.disabled = false; signProcessBtn.textContent = 'Process';
+  }
+});
+
+// For Aadhaar front/back, just upload (auto-adjust) when process applied (we'll auto upload on crop apply or leave as base64)
+async function autoUploadAadhaar(field){
+  try{
+    const dataUrl = field==='front' ? images.aadFront : images.aadBack;
+    if(!dataUrl) return;
+    const uploaded = await uploadToCloudinary(dataUrl, field==='front' ? 'aad_front' : 'aad_back');
+    // small auto-adjust transformation (auto contrast)
+    const trans = 'c_scale,w_1000,e_auto_color,e_auto_contrast';
+    const url = buildCloudinaryUrl(uploaded.public_id, trans);
+    if(field==='front') images.aadFront = url; else images.aadBack = url;
+    saveToLocal();
+  }catch(e){ console.warn('Aadhaar upload err', e); }
+}
+
+// Hook: when aadhaar previews are set (after cropping), attempt auto upload in background
+aadFrontCropBtn.addEventListener('click', ()=>{ if(!aadFrontPreview.src){ alert('Choose Aadhaar front file first'); return;} openCropperFor('aadFront'); });
+aadBackCropBtn.addEventListener('click', ()=>{ if(!aadBackPreview.src){ alert('Choose Aadhaar back file first'); return;} openCropperFor('aadBack'); });
+
+// When crop applied, trigger auto upload for aadhar images
+// We already call saveToLocal in applyCrop; let's also auto-upload
+// modify applyCrop handler to call autoUpload for aadFront/Back
+// (We will call autoUploadAadhaar from applyCrop after saving)
+(function hookExtraUpload(){
+  const origApply = applyCrop.onclick || null;
+  // our earlier handler is attached; add secondary behavior via event listener
+  applyCrop.addEventListener('click', ()=>{
+    // tiny timeout to let image src update
+    setTimeout(()=>{
+      if(cropTarget === 'aadFront') autoUploadAadhaar('front');
+      if(cropTarget === 'aadBack') autoUploadAadhaar('back');
+    }, 400);
+  });
+})();
+
+// -------------------- Persist & Load Local Storage ----------------------
+function gatherFormData(){
+  const doc = {
+    meta: {
+      slno: inputs.slno.value || '',
+      date: document.getElementById('regDate').value || '',
+      language: document.getElementById('langSelect').value
+    },
+    fields: {},
+    images: images,
+    booking: {
+      roomNo: inputs.roomNo.value || '',
+      rate: inputs.rate.value || '',
+      payment: document.querySelector('input[name="pay"]:checked').value
+    }
+  };
+  // collect fields
+  Object.keys(inputs).forEach(k=>{
+    if(inputs[k] && inputs[k].value !== undefined){
+      doc.fields[k] = inputs[k].value;
+    }
+  });
+  // capture translated snapshot
+  doc.translated = {};
+  Object.keys(t).forEach(k => { if(t[k]) doc.translated[k] = t[k].value; });
+  return doc;
+}
+
+function saveToLocal(){
+  const data = gatherFormData();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function loadFromLocal(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if(!raw) return;
+  try{
+    const obj = JSON.parse(raw);
+    if(obj.meta){
+      inputs.slno.value = obj.meta.slno || '';
+      document.getElementById('regDate').value = obj.meta.date || '';
+      document.getElementById('langSelect').value = obj.meta.language || 'hi';
+    }
+    if(obj.fields){
+      Object.keys(obj.fields).forEach(k=>{
+        if(inputs[k]) inputs[k].value = obj.fields[k] || '';
+      });
+    }
+    if(obj.translated){
+      Object.keys(obj.translated).forEach(k=>{
+        if(t[k]) t[k].value = obj.translated[k] || '';
+      });
+    }
+    if(obj.images){
+      images = Object.assign(images, obj.images);
+      if(images.photo){ photoPreview.src = images.photo; photoPreview.style.display='block'; }
+      if(images.sign){ signPreview.src = images.sign; signPreview.style.display='block'; }
+      if(images.aadFront){ aadFrontPreview.src = images.aadFront; aadFrontPreview.style.display='block'; }
+      if(images.aadBack){ aadBackPreview.src = images.aadBack; aadBackPreview.style.display='block'; }
+    }
+    // age recalc
+    if(inputs.dob.value){ inputs.dob.dispatchEvent(new Event('change')); }
+  }catch(e){ console.warn('Failed load local', e); }
+}
+
+// initial load
+loadFromLocal();
+
+// -------------------- Validation before PDF/Save ------------------------
+function validateForm(){
+  formError.style.display = 'none';
+  const required = [
+    {id:'guestName', label:'Guest Name'},
+    {id:'aadhaar', label:'Aadhaar No.'},
+    {id:'village', label:'Village'},
+    {id:'post', label:'Post Office'},
+    {id:'ps', label:'Police Station'},
+    {id:'district', label:'District'},
+    {id:'pincode', label:'Pin Code'},
+    {id:'state', label:'State'},
+    {id:'phone', label:'Tele No.'},
+    {id:'purpose', label:'Purpose of Visit'}
+  ];
+  for(const r of required){
+    const val = inputs[r.id] && inputs[r.id].value;
+    if(!val || val.toString().trim()===''){
+      formError.textContent = r.label + ' is required.';
+      formError.style.display = 'block';
+      return false;
+    }
+  }
+  // aadhaar length
+  if(inputs.aadhaar.value.length !== 12){
+    formError.textContent = 'Aadhaar No. must be 12 digits.';
+    formError.style.display = 'block';
+    return false;
+  }
+  if(inputs.phone.value.length !== 10){
+    formError.textContent = 'Tele No. must be 10 digits.';
+    formError.style.display = 'block';
+    return false;
+  }
+  return true;
+}
+
+// -------------------- PDF Generation -------------------------
+async function buildPdfBlob(openPreview=false){
+  if(!validateForm()) throw new Error('Validation failed');
+
+  // build printable HTML content inside #pdf-content
+  const pdfContent = document.getElementById('pdf-content');
+  pdfContent.innerHTML = ''; // reset
+
+  // Create a visually faithful A4 card layout: header + two columns + images + footer
+  const data = gatherFormData();
+
+  // helper to create elements safely
+  function el(tag, inner='', cls=''){
+    const e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(typeof inner === 'string') e.innerHTML = inner;
+    else if(inner instanceof Node) e.appendChild(inner);
+    return e;
+  }
+
+  // style block for pdf
+  const style = document.createElement('style');
+  style.textContent = `
+    body{font-family:Poppins, sans-serif;color:#111}
+    .hdr{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+    .hdr .logo{width:70px;height:70px;border-radius:8px;background:${getComputedStyle(document.documentElement).getPropertyValue('--primary')};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+    .hdr .title{font-size:18px;font-weight:800}
+    .meta{font-size:12px;color:#444}
+    .two{display:flex;gap:8px;margin-top:8px}
+    .col{flex:1;padding:8px;border:1px solid #e9e9ef;border-radius:8px}
+    .row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed #eee}
+    .label{font-weight:700;font-size:11px;color:#333}
+    .val{font-size:12px}
+    .images{display:flex;gap:8px;margin-top:8px}
+    .img{width:120px;height:150px;border:1px solid #ddd;display:flex;align-items:center;justify-content:center}
+    .footer{margin-top:10px;display:flex;justify-content:space-between;align-items:center}
+    .small{font-size:11px;color:#666}
+    @media print { .page-break{page-break-after:always;} }
+  `;
+  pdfContent.appendChild(style);
+
+  // header
+  const header = el('div', '', 'hdr');
+  const logo = el('div', 'NBS', 'logo');
+  const titleWrap = el('div');
+  titleWrap.appendChild(el('div', 'NEW BUS STAND, BALIJORI, JHARSUGUDA', 'title'));
+  titleWrap.appendChild(el('div', '(Operating ACU Private Limited)', 'meta'));
+  header.appendChild(logo); header.appendChild(titleWrap);
+  pdfContent.appendChild(header);
+
+  // meta row (sl no etc)
+  const metaRow = el('div', '', 'row');
+  const leftMeta = el('div', `<div class="label">Sl No.</div><div class="val">${data.meta.slno || ''}</div>`);
+  const midMeta = el('div', `<div class="label">Date</div><div class="val">${data.meta.date || ''}</div>`);
+  const rightMeta = el('div', `<div class="label">Language</div><div class="val">${data.meta.language==="hi"?'Hindi':data.meta.language==="or"?'Odia':'-'}</div>`);
+  metaRow.innerHTML = '';
+  metaRow.appendChild(leftMeta); metaRow.appendChild(midMeta); metaRow.appendChild(rightMeta);
+  metaRow.style.display = 'flex';
+  metaRow.style.justifyContent = 'space-between';
+  pdfContent.appendChild(metaRow);
+
+  // two columns: left english details, right translated
+  const two = el('div', '', 'two');
+  const leftCol = el('div', '', 'col');
+  const rightCol = el('div', '', 'col');
+
+  // helper for rows
+  function addField(container, labelText, valueText){
+    const r = el('div','', 'row');
+    const l = el('div', `<div class="label">${labelText}</div><div class="val">${valueText || ''}</div>`);
+    r.appendChild(l);
+    container.appendChild(r);
+  }
+
+  addField(leftCol, 'Guest Name', data.fields.guestName);
+  addField(leftCol, 'Aadhaar No.', data.fields.aadhaar);
+  addField(leftCol, 'Village', data.fields.village);
+  addField(leftCol, 'Post Office', data.fields.post);
+  addField(leftCol, 'Police Station', data.fields.ps);
+  addField(leftCol, 'District', data.fields.district);
+  addField(leftCol, 'Pin Code', data.fields.pincode);
+  addField(leftCol, 'State', data.fields.state);
+  addField(leftCol, 'Tele No.', data.fields.phone);
+  addField(leftCol, 'Nationality', data.fields.nationality);
+  addField(leftCol, 'DOB / Age', (data.fields.dob || '') + ' / ' + (data.fields.age || ''));
+  addField(leftCol, 'Adult / Child', (data.fields.adult || '') + ' / ' + (data.fields.child || ''));
+  addField(leftCol, 'Arrival', (data.fields.arrival || ''));
+  addField(leftCol, 'Departure', (data.fields.departure || ''));
+  addField(leftCol, 'Arrived From', data.fields.arrivedFrom);
+  addField(leftCol, 'Proceeding To', data.fields.proceedTo);
+  addField(leftCol, 'Purpose', data.fields.purpose);
+
+  // Right column: translated snapshot (if available) else blank
+  addField(rightCol, 'Guest Name', data.translated.guestName || '');
+  addField(rightCol, 'Aadhaar No.', data.translated.aadhaar || '');
+  addField(rightCol, 'Village', data.translated.village || '');
+  addField(rightCol, 'Post Office', data.translated.post || '');
+  addField(rightCol, 'Police Station', data.translated.ps || '');
+  addField(rightCol, 'District', data.translated.district || '');
+  addField(rightCol, 'Pin Code', data.translated.pincode || '');
+  addField(rightCol, 'State', data.translated.state || '');
+  addField(rightCol, 'Tele No.', data.translated.phone || '');
+  addField(rightCol, 'Nationality', data.translated.nationality || '');
+  addField(rightCol, 'DOB / Age', data.translated.dob || ' / ' + (data.translated.age || ''));
+  addField(rightCol, 'Adult / Child', data.translated.adult || '' + ' / ' + data.translated.child || '');
+  addField(rightCol, 'Arrival', data.translated.arrival || '');
+  addField(rightCol, 'Departure', data.translated.departure || '');
+  addField(rightCol, 'Arrived From', data.translated.arrivedFrom || '');
+  addField(rightCol, 'Proceeding To', data.translated.proceedTo || '');
+  addField(rightCol, 'Purpose', data.translated.purpose || '');
+
+  two.appendChild(leftCol); two.appendChild(rightCol);
+  pdfContent.appendChild(two);
+
+  // images row
+  const imgs = el('div', '', 'images');
+  const photoBox = el('div', '', 'img');
+  const signBox = el('div', '', 'img');
+  photoBox.innerHTML = images.photo ? `<img src="${images.photo}" style="max-width:100%;max-height:100%;">` : '<div class="small">Photo</div>';
+  signBox.innerHTML = images.sign ? `<img src="${images.sign}" style="max-width:100%;max-height:100%;">` : '<div class="small">Signature</div>';
+  const a1 = el('div', '', 'img'); a1.innerHTML = images.aadFront ? `<img src="${images.aadFront}" style="max-width:100%;max-height:100%;">` : '<div class="small">Aadhaar Front</div>';
+  const a2 = el('div', '', 'img'); a2.innerHTML = images.aadBack ? `<img src="${images.aadBack}" style="max-width:100%;max-height:100%;">` : '<div class="small">Aadhaar Back</div>';
+  imgs.appendChild(photoBox); imgs.appendChild(signBox); imgs.appendChild(a1); imgs.appendChild(a2);
+  pdfContent.appendChild(imgs);
+
+  // booking info & footer
+  const footer = el('div', '', 'footer');
+  footer.appendChild(el('div', `<div class="label">Room / Rate</div><div class="val">${data.booking.roomNo || ''} — ₹ ${data.booking.rate || ''}</div>`));
+  footer.appendChild(el('div', `<div class="small">Mode: ${data.booking.payment || ''}</div>`));
+  pdfContent.appendChild(footer);
+
+  // create PDF using html2canvas and jsPDF
+  // ensure fonts loaded
+  await document.fonts.ready;
+
+  // show a short loader while rendering
+  const loading = document.createElement('div');
+  loading.id = 'pdfLoader';
+  loading.style = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.85);z-index:99999';
+  loading.innerHTML = '<div style="background:white;padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);font-weight:700">Rendering PDF…</div>';
+  document.body.appendChild(loading);
+
+  try{
+    // html2canvas on pdfContent; A4 in px depends on DPI. We'll render at high scale for quality.
+    const scale = 2; // increase for higher quality
+    const canvas = await html2canvas(pdfContent, { scale: scale, useCORS:true, backgroundColor: '#ffffff' });
+    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+
+    // create jsPDF A4 portrait (210 x 297 mm)
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+
+    // calculate width/height of PDF in px relative to canvas
+    const pdfWidth = 210; const pdfHeight = 297;
+    // convert canvas size to mm
+    const imgProps = { width: canvas.width, height: canvas.height };
+    const mmPerPx = pdfWidth / imgProps.width;
+    const imgHeightMM = imgProps.height * mmPerPx;
+
+    // add image
+    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, imgHeightMM);
+
+    // output blob
+    const blob = pdf.output('blob');
+
+    // remove loader
+    document.body.removeChild(loading);
+    return blob;
+  }catch(err){
+    document.body.removeChild(loading);
+    console.error('PDF generation error',err);
+    throw err;
+  }
+}
+
+// preview in new tab
+previewBtn.addEventListener('click', async ()=>{
+  try{
+    const blob = await buildPdfBlob(true);
+    const url = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+  }catch(e){
+    console.error(e);
+  }
+});
+
+// Save / Download / Print
+saveBtn.addEventListener('click', async ()=>{
+  try{
+    if(!validateForm()) return;
+    // save local copy
+    saveToLocal();
+    const blob = await buildPdfBlob(false);
+    // download
+    const a = document.createElement('a');
+    const filename = `guest_reg_${(inputs.slno.value || 'record')}_${new Date().toISOString().slice(0,10)}.pdf`;
+    const url = URL.createObjectURL(blob);
+    a.href = url; a.download = filename; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    // print
+    const win = window.open(url, '_blank');
+    // attempt to call print after a short delay (browser may block)
+    setTimeout(()=> { try{ win.print(); }catch(e){} }, 800);
+  }catch(e){
+    console.error(e);
+    alert('Failed to save or print: ' + e.message);
+  }
+});
+
+// Share button using Web Share API
+shareBtn.addEventListener('click', async ()=>{
+  try{
+    if(!validateForm()) return;
+    const blob = await buildPdfBlob(false);
+    const file = new File([blob], `guest_reg_${(inputs.slno.value || 'record')}.pdf`, { type: 'application/pdf' });
+    // if navigator.share with files available
+    if(navigator.canShare && navigator.canShare({ files: [file] })){
+      await navigator.share({ title: 'Guest Registration', files: [file] });
+    } else if(navigator.share){
+      // fallback: create url and share link
+      const url = URL.createObjectURL(file);
+      await navigator.share({ title:'Guest Registration', text:'Guest registration PDF', url });
+      URL.revokeObjectURL(url);
+    } else {
+      // fallback: download
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `guest_reg_${(inputs.slno.value || 'record')}.pdf`;
+      a.click();
+      a.remove();
+      alert('Web Share API not available on this device. File downloaded instead.');
+    }
+  }catch(e){
+    console.error(e);
+    alert('Share failed: ' + e.message);
+  }
+});
+
+// -------------------- Extra small features ----------------------------
+// Auto-translate existing text on load
+(function autoTranslateOnLoad(){
+  const chosenLang = document.getElementById('langSelect').value;
+  translatableFields.forEach(k=>{
+    if(inputs[k] && inputs[k].value){
+      debouncedTranslate(inputs[k].value, chosenLang, t[k]);
+    }
+  });
+})();
+
+// save periodically (auto-save)
+setInterval(saveToLocal, 5000);
+
+// final console note
+console.log('Guest Registration Card ready. Works offline for data entry; enable network for translation & image processing.');
+
+// End of script
+</script>
+</body>
+</html>
